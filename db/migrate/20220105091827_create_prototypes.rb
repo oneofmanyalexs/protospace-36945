@@ -1,9 +1,9 @@
 class CreatePrototypes < ActiveRecord::Migration[6.0]
   def change
     create_table :prototypes do |t|
-      t.string :name
-      t.string :text
-      t.text :image
+      t.string :title
+      t.text :catch_copy
+      t.text :concept
       t.timestamps
     end
   end
