@@ -6,6 +6,12 @@
         <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
         <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
         <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%# maybe add this? <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :nickname %> <em>(6 characters maximum)</em><br />
+          <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+        </div>
 
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
@@ -23,23 +29,23 @@
         </div>
 
         <div class="field">
-          <%= f.label :user_name, "ユーザー名" %><br />
-          <%= f.text_field :user_name, id:"user_name" %>
+          <%= f.label :name, "ユーザー名" %><br />
+          <%= f.text_field :name, id:"user_name" %>
         </div>
 
         <div class="field">
-          <%= f.label :user_profile, "プロフィール" %><br />
-          <%= f.text_area :user_profile, class: :form__text, id:"user_profile" %>
+          <%= f.label :profile, "プロフィール" %><br />
+          <%= f.text_area :profile, class: :form__text, id:"user_profile" %>
         </div>
 
         <div class="field">
-          <%= f.label :user_occupation, "所属" %><br />
-          <%= f.text_area :user_occupation, class: :form__text, id:"user_occupation" %>
+          <%= f.label :occupation, "所属" %><br />
+          <%= f.text_area :occupation, class: :form__text, id:"user_occupation" %>
         </div>
 
         <div class="field">
-          <%= f.label :user_position, "役職" %><br />
-          <%= f.text_area :user_position, class: :form__text, id:"user_position" %>
+          <%= f.label :position, "役職" %><br />
+          <%= f.text_area :position, class: :form__text, id:"user_position" %>
         </div>
 
         <div class="actions">
