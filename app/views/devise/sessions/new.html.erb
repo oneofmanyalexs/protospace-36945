@@ -8,12 +8,15 @@
 
         <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :hoge, id:"user_email", autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
-          <%= f.password_field :hoge, id:"user_password", autocomplete: "current-password" %>
+          <%= f.label :password %><br />
+           <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+           <% end %>
+          <%= f.password_field :password, id:"user_password", autocomplete: "current-password" %>
         </div>
 
         <div class="actions">
