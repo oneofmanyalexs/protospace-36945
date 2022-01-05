@@ -1,6 +1,6 @@
-class CreateTwitters < ActiveRecord::Migration[6.0]
+class CreatePrototypes < ActiveRecord::Migration[6.0]
   def change
-    create_table :twitters do |t|
+    create_table :prototypes do |t|
       t.string :name
       t.string :text
       t.text :image
