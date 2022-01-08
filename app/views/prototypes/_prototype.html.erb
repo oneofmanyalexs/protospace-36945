@@ -1,11 +1,21 @@
-<div class="card">
-  <%= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path%>
-  <div class="card__body">
-    <%= link_to "プロトタイプのタイトル", root_path, class: :card__title%>
-    <p class="card__summary">
-      <%= "プロトタイプのキャッチコピー" %>
-    </p>
-    <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
+  <div class="card" style="background-image: url(<%= prototype.image %>);">
+    <%= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path%>
+      <%= prototype.user.image%>
+    <div class="card__body">
+      <div class="prototype-title">
+        <%= link_to "プロトタイプのタイトル", root_path, class: :card__title%>
+        <%= prototype.user.title%>
+      </div>
+      <p class="card__summary">
+        <%= "プロトタイプのキャッチコピー" %>
+        <%=prototype.user.catch_copy%>
+      </p>
+      <div class ="prototype_user">
+        <%= prototype.user.user_id%>
+        <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
+      </div>
+    </div>
+    <%= image_tag prototype.image, class: 'prototype-image' if message.image.attached?%>
+     <%= render partial: 'prototype', collection: @prototypes %>
   </div>
-  <%= image_tag prototype.image, class: 'prototype-image'%>
-</div>
+  <p><%=prototype.text%></p>

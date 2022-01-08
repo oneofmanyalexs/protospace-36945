@@ -6,6 +6,7 @@ class PrototypesController < ApplicationController
   def index
     @users = User.all
     @prototypes = Prototype.all
+    @prototypes = Prototype.includes(:user)
   end
 
 
@@ -16,11 +17,23 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
-      redirect_to root_path
+      redirect_to prototypes_path(@prototypes)
     else
+      @prototypes = Prototype.includes(:user)
       render :new
     end
+  def show
+    @prototype = Prototype.find(params[:id])
   end
+
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+  end
+end
+
 
   private
   def prototype_params
