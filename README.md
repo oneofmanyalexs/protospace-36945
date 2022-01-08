@@ -22,6 +22,7 @@
 | concept            | text       | null: false |
 | user               | references | null: false, foreign_key: true |
 
+- belongs_to :user
 - has_many  :comments
 <%= do I need to put in belong_to here? >
 ## comments Table
