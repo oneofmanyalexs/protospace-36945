@@ -1,36 +1,24 @@
-## users Table
+# README
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false |
-| name               | string | null: false |
-| profile            | text   | null: false |
-| occupation         | text   | null: false |
-| position           | text   | null: false |
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-- has_many  :prototypes
-- has_many  :comments
-<%= im just putting in has_many because its one to multiple. is this right?>
+Things you may want to cover:
 
-## prototypes Table
+* Ruby version
 
-| Column             | Type       | Options     |
-| ------------------ | ------     | ----------- |
-| title              | string     | null: false |
-| catch_copy         | text       | null: false |
-| concept            | text       | null: false |
-| user               | references | null: false, foreign_key: true |
+* System dependencies
 
-- has_many  :comments
-<%= do I need to put in belong_to here? >
-## comments Table
+* Configuration
 
-| Column             | Type       | Options     |
-| ------------------ | ------     | ----------- |
-| content            | text       | null: false |
-| prototype          | references | null: false, foreign_key: true |
-| user               | references | null: false, foreign_key: true |
+* Database creation
 
-- belongs_to  :users
-- belongs_to  :prototypes
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
