@@ -10,34 +10,7 @@
     <%# // ログインしているときは上記を表示する %>
     <div class="form__wrapper">
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
-      <% @prototypes.each do |prototype| %>
-        <div class="card">
-          <div class="card_image" image_tag style="background-image: url(<%= prototype.image %>);"%>
-          </div>
-          <span><%=prototype.image%></span>
-          <%# i dont know how to fix the image into an actual image%>
-            <ul class="more_list">
-              <li>
-                <%= link_to '詳細', prototype_path(prototype.id), method: :get %>
-              </li>
-              <% if user_signed_in? && current_user.id == prototype.user_id %>
-              <li>
-                <%= link_to '編集', edit_prototype_path(prototype.id), method: :get %>
-              </li>
-              <li>
-                <%= link_to '削除', prototype_path(prototype.id), method: :delete %>
-              </li>
-              <% end %>
-            </ul>
-          <p><%= prototype.title %></p>
-          <span class="name">
-            <%= prototype.catch_copy %>
-          </span>
-          <div class="user_id">
-            <%= prototype.user_id%>
-          </div>
-        </div>
-      <% end%>
+      <%= render partial: 'prototype', collection: @prototypes %>
     </div>
   </div>
 </main>

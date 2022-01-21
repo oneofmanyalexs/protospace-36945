@@ -16,14 +16,18 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(prototype_params)
-    if @prototype.save
+    if @prototype.save!
       redirect_to prototypes_path(@prototypes)
     else
       @prototypes = Prototype.includes(:user)
       render :new
     end
+  end
+
   def show
     @prototype = Prototype.find(params[:id])
+    #@comment = Comment.new
+    #@comments = @prototype.comments.includes(:user)
   end
 
   def edit
@@ -58,5 +62,4 @@ class PrototypesController < ApplicationController
       redirect_to action: :index
     end
   end
-end
 end
