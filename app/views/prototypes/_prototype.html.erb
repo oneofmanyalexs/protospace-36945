@@ -1,21 +1,19 @@
-  <div class="card" style="background-image: url(<%= prototype.image %>);">
-    <%= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path%>
-      <%= prototype.user.image%>
+  <div class="card">
+    <%= link_to image_tag(prototype.image, class: :card__img ), prototype_path(prototype.id)%>
+    <%# this prototype.image was originally a random text but we put a model name prototype and then its designation on the model which was has_one image%>
     <div class="card__body">
       <div class="prototype-title">
-        <%= link_to "プロトタイプのタイトル", root_path, class: :card__title%>
-        <%= prototype.user.title%>
+        <%= link_to prototype.title, prototype_path(prototype.id), class: :card__title%>
+        <%# was originally prototype.user.title but then itll look for title in user table. tyake out user%>
       </div>
       <p class="card__summary">
-        <%= "プロトタイプのキャッチコピー" %>
-        <%=prototype.user.catch_copy%>
+        <%= link_to prototype.catch_copy, prototype_path(prototype.id) %>
+        <%# make sure link_to does not double. and the path is prototype_path(prototype.id) for places that are root-path%>
       </p>
       <div class ="prototype_user">
-        <%= prototype.user.user_id%>
-        <%= link_to "by プロトタイプの投稿者名", root_path, class: :card__user %>
+        <%= prototype.user_id%>
+        <%= link_to prototype_path(prototype.id), class: :card__user %>
       </div>
     </div>
-    <%= image_tag prototype.image, class: 'prototype-image' if message.image.attached?%>
-     <%= render partial: 'prototype', collection: @prototypes %>
   </div>
   <p><%=prototype.text%></p>
