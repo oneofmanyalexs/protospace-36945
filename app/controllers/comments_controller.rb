@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save!
       #Validation failed: Prototype must exist error
-      redirect_to comment_path{comment.prototype.id} # 今回の実装には関係ありませんが、このようにPrefixでパスを指定することが望ましいです。
+      redirect_to prototypes_path{comment.prototype.id} # 今回の実装には関係ありませんが、このようにPrefixでパスを指定することが望ましいです。
     else
-      @prototype = Prototype.find(params[:prototype_id])
+      @prototype = Prototype.find(params[:prototype_id,])
       #if you put Prototype.find(params[:id]) then it will be considered comment id. so you need to designate which id. which is prototype_id
       @comments = @prototype.comments
       render "prototypes/show" # views/tweets/show.html.erbのファイルを参照しています。
