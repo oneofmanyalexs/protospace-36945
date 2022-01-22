@@ -4,7 +4,8 @@
     <% if user_signed_in? %>
       <div class="greeting">
         こんにちは,
-        <%= link_to "#{current_user.nickname} さん", root_path, class: :greeting__link%>
+        <%= link_to "#{current_user.nickname} さん", "/users/#{current_user.id}", class: :greeting__link%>
+        <%#= link_to " 編集する ", edit_prototype_path(@prototype.id), method: :get%>
       </div>
       <%end%>
     <%# // ログインしているときは上記を表示する %>
