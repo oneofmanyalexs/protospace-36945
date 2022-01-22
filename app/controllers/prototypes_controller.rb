@@ -18,7 +18,7 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save!
-      redirect_to show_prototypes_path(@prototype.id)
+      redirect_to prototypes_path(@prototype.id)
     else
       @prototypes = Prototype.includes(:user)
       render :new
