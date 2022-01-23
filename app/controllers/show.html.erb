@@ -2,7 +2,7 @@
   <p><%= @nickname %>さんの投稿一覧</p>
   <% @prototypes.each do |prototype| %>
     <div class="content_post" style="background-image: url(<%= prototype.image %>);">
-      <p><%= prototype.text %></p>
+      <p><%= prototype.title %></p>
       <span class="name"><%= tweet.name %></span>
     </div>
   <% end %>
